@@ -49,7 +49,7 @@ def predict():
 
         except Exception as e:
             print(f"Error: {e}")
-            return render_template('index.html', results="Error: Invalid input or server issue.")
+            return render_template('index.html', results="Please give valid input")
 
     else:
         return render_template("index.html")
