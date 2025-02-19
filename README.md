@@ -33,11 +33,6 @@ Machine Learning Model: Training a Multiple Linear Regression model
 
 Web Application: Users can input their details and get predicted insurance costs
 
-Deployment on AWS: My first experience deploying a project on AWS
-
-## Project Deployment
-
-This project is successfully hosted on AWS, where the Flask backend interacts with the machine learning model to provide real-time predictions.
 
 ## 🔥 How to Use
 
@@ -62,7 +57,7 @@ python app.py  # If using Flask
 
 ## Conclusion
 
-This project helped me gain experience in machine learning, Flask web development, and AWS deployment. It marks an important step in my journey as a developer! 🚀
+This project helped me gain experience in machine learning, Flask web development. It marks an important step in my journey as a developer! 🚀
 
 ## 🤝 Contributing
 
