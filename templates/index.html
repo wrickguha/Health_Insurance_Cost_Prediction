@@ -27,71 +27,63 @@
         </div>
       </nav>
       <div class="container">
-        <form>
+        <form id="prediction-form" action="{{ url_for('predict') }}" method="post">
           <div class="mb-3">
-            <label for="Age" class="form-label" style="font-weight: bold;">Age</label>
-            <input type="number" class="form-control" id="Age">
+              <label for="Age" class="form-label" style="font-weight: bold;">Age</label>
+              <input type="number" class="form-control" id="Age" name="Age" required>
           </div>
+      
           <div class="gender" style="font-weight: bold;">Gender</div>
           <div class="choose1 mb-3">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                Male
-              </label>
+              <div class="form-check">
+                  <input class="form-check-input" name="gender" type="radio" value="Male" id="male">
+                  <label class="form-check-label" for="male">Male</label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" name="gender" type="radio" value="Female" id="female">
+                  <label class="form-check-label" for="female">Female</label>
+              </div>
           </div>
-          <div class="form-check1">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                Female
-              </label>
-          </div>
-          </div>
-
+      
           <div class="mb-3">
-            <label for="bmi" class="form-label" style="font-weight: bold;">Body mass index (BMI)</label>
-            <input type="number" class="form-control" id="bmi">
+              <label for="bmi" class="form-label" style="font-weight: bold;">Body mass index (BMI)</label>
+              <input type="number" name="bmi" class="form-control" id="bmi" required>
           </div>
-  
+      
           <label for="customRange2" class="form-label" style="font-weight: bold;">Children: <span id="rangeValue">0</span></label>
-          <input type="range" class="form-range" min="0" max="5" id="customRange2" oninput="updateRangeValue(this.value)">
-
+          <input type="range" name="range" class="form-range" min="0" max="5" id="customRange2" oninput="updateRangeValue(this.value)" required>
+      
           <script>
-            function updateRangeValue(value) {
-                document.getElementById("rangeValue").textContent = value;
-            }
+              function updateRangeValue(value) {
+                  document.getElementById("rangeValue").textContent = value;
+              }
           </script>
-
-  
+      
           <div class="gender" style="font-weight: bold;">Smoking</div>
           <div class="choose2 mb-3">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                Yes
-              </label>
+              <div class="form-check">
+                  <input class="form-check-input" name="smoke" type="radio" value="Yes" id="smoke-yes">
+                  <label class="form-check-label" for="smoke-yes">Yes</label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" name="smoke" type="radio" value="No" id="smoke-no">
+                  <label class="form-check-label" for="smoke-no">No</label>
+              </div>
           </div>
-          <div class="form-check2">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                No
-              </label>
-          </div>
-          </div>
-
-          <div class="region mb-2" style="font-weight: bold;">Select Region</div>
-          <select class="form-select mb-3" aria-label="Default select example">
-              <option selected>SouthWest</option>
-              <option value="1">SouthEast</option>
-              <option value="2">NorthEast</option>
-              <option value="3">NorthWest</option>
-            </select>
-  
-          <button type="submit" class="btn btn-primary">Predict</button>
-          
-        </form>
-      </div>
       
+          <div class="region mb-2" style="font-weight: bold;">Select Region</div>
+          <select class="form-select mb-3" aria-label="Default select example" name="direction" required>
+              <option value="SouthWest">SouthWest</option>
+              <option value="SouthEast">SouthEast</option>
+              <option value="NorthEast">NorthEast</option>
+              <option value="NorthWest">NorthWest</option>
+          </select>
+      
+          <button type="submit" class="btn btn-primary">Predict</button>
+      </form>
+      
+      <h2>Medical Insurance Cost For New Customer Is: {{ results }}</h2>
+      </div>      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
